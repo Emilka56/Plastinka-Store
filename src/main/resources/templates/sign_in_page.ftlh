@@ -11,6 +11,8 @@
 <body>
     <div class="container">
         <form class="sign-in-form" action="/signIn" method="post">
+            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+
             <img class="logo" src="/images/plastinka.png" alt="Logo">
             <h2>Вход</h2>
             

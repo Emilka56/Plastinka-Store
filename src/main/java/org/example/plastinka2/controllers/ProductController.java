@@ -51,8 +51,7 @@ public class ProductController {
             
             List<Review> reviews = reviewService.getProductReviews(id);
             logger.info("Retrieved {} reviews for product {}", reviews.size(), id);
-            
-            // Добавляем информацию о лайках
+
             reviews.forEach(review -> {
                 if (currentUser != null) {
                     model.addAttribute("review_" + review.getId() + "_liked", review.isLikedByUser(currentUser));
@@ -94,5 +93,4 @@ public class ProductController {
         }
     }
 
-    // ... остальные методы контроллера
 }

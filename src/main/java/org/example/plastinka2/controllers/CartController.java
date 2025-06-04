@@ -38,12 +38,17 @@ public class CartController {
     private UserService userService;
     @Autowired
     private ProductService productService;
-    @Autowired
-    private OrderRepository orderRepository;
-    @Autowired
-    private AddressRepository addressRepository;
+//    @Autowired
+//    private OrderRepository orderRepository;
+//    @Autowired
+//    private AddressRepository addressRepository;
     @Autowired
     private DateConverter dateConverter;
+    @Autowired
+    private DiscountService discountService;
+    @Autowired
+    private AddressService addressService;
+
 
     @GetMapping
     public String showCart(Model model) {
@@ -202,31 +207,29 @@ public class CartController {
     @PostMapping("/complete-order")
     @ResponseBody
     public ResponseEntity<?> completeOrder(
-            @RequestParam("orderId") Long orderId,
-            @RequestParam("address") String address,
-            @RequestParam("deliveryDate") String deliveryDateStr) {
+            @RequestParam Long orderId,
+            @RequestParam String deliveryDateStr,
+            @RequestParam String street,
+            @RequestParam String city,
+            @RequestParam int houseNumber,
+            @RequestParam int apartmentNumber,
+            @RequestParam(required = false) String promoCode) {
         try {
-            // Получаем заказ
-            Order order = orderRepository.findById(orderId)
-                    .orElseThrow(() -> new RuntimeException("Заказ не найден"));
+            logger.info("Completing order {} with delivery date {}", orderId, deliveryDateStr);
 
-            // Разбираем адрес на компоненты
-            String[] addressParts = address.split(",", 4);
-            if (addressParts.length < 4) {
-                throw new RuntimeException("Неверный формат адреса. Используйте формат: Город, Улица, Номер дома, Номер квартиры");
-            }
+            Order order = orderService.findById(orderId);
 
-            // Создаем адрес
+            // Создаем новый адрес
             Address orderAddress = Address.builder()
-                    .city(addressParts[0].trim())
-                    .street(addressParts[1].trim())
-                    .house_number(Integer.parseInt(addressParts[2].trim()))
-                    .apartment_number(Integer.parseInt(addressParts[3].trim()))
+                    .street(street)
+                    .city(city)
+                    .house_number(houseNumber)
+                    .apartment_number(apartmentNumber)
                     .build();
-            addressRepository.save(orderAddress);
+            addressService.save(orderAddress);
 
-            // Устанавливаем дату доставки
-            DateTimeFormatter formatter = DateTimeFormatter.ISO_LOCAL_DATE_TIME;
+            // Парсим дату доставки
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
             LocalDateTime deliveryDate = LocalDateTime.parse(deliveryDateStr, formatter);
             order.setDeliveryTime(deliveryDate);
 
@@ -245,16 +248,21 @@ public class CartController {
                             .multiply(BigDecimal.valueOf(item.getQuantity()))
                             .setScale(2, BigDecimal.ROUND_HALF_UP))
                     .reduce(BigDecimal.ZERO, BigDecimal::add);
+
+            // Применяем скидку, если есть промокод
+            if (promoCode != null && !promoCode.isEmpty()) {
+                totalPrice = discountService.calculateDiscountedPrice(totalPrice, order.getUser().getId(), promoCode);
+            }
             order.setTotalPrice(totalPrice);
 
             // Сохраняем заказ
-            orderRepository.save(order);
+            orderService.save(order);
 
             Map<String, String> response = new HashMap<>();
             response.put("status", "success");
             return ResponseEntity.ok(response);
         } catch (Exception e) {
-            logger.error("Error completing order {}", orderId, e);
+            logger.error("Error completing order {}: {}", orderId, e.getMessage(), e);
             Map<String, String> errorResponse = new HashMap<>();
             errorResponse.put("status", "error");
             errorResponse.put("message", e.getMessage());

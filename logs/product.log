@@ -1,0 +1,11 @@
+2025-06-19 00:05:26 [http-nio-8080-exec-3] INFO  o.e.p.services.ProductServiceImpl - Finding all products
+2025-06-19 00:05:34 [http-nio-8080-exec-7] INFO  o.e.p.services.ProductServiceImpl - Finding all products
+2025-06-19 00:05:36 [http-nio-8080-exec-6] INFO  o.e.p.services.ProductServiceImpl - Finding all products
+2025-06-19 00:06:11 [http-nio-8080-exec-6] INFO  o.e.p.services.ProductServiceImpl - Finding all products
+2025-06-19 00:06:36 [http-nio-8080-exec-5] INFO  o.e.p.services.ProductServiceImpl - Finding all products
+2025-06-19 00:12:49 [http-nio-8080-exec-6] INFO  o.e.p.services.ProductServiceImpl - Finding all products
+2025-06-19 00:21:47 [http-nio-8080-exec-4] INFO  o.e.p.services.ProductServiceImpl - Finding all products
+2025-06-19 00:35:38 [http-nio-8080-exec-5] INFO  o.e.p.services.ProductServiceImpl - Finding all products
+2025-06-19 00:37:28 [http-nio-8080-exec-9] INFO  o.e.p.services.ProductServiceImpl - Finding all products
+2025-06-19 00:37:30 [http-nio-8080-exec-5] INFO  o.e.p.services.ProductServiceImpl - Getting product by id: 333
+2025-06-19 00:38:22 [http-nio-8080-exec-4] INFO  o.e.p.services.ProductServiceImpl - Finding all products

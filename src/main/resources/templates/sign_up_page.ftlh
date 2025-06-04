@@ -16,6 +16,8 @@
 </head>
 <body>
 <form action="/signUp" method="post">
+    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+
     <div class="form-header">
         <h2>Регистрация</h2>
     </div>

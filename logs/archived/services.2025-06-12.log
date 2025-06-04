@@ -1,0 +1,13 @@
+2025-06-12 22:50:44 [http-nio-8080-exec-1] INFO  o.e.p.services.ReviewServiceImpl - Getting reviews for product id: 333
+2025-06-12 22:50:44 [http-nio-8080-exec-1] INFO  o.e.p.services.ReviewServiceImpl - Found 1 reviews for product 333
+2025-06-12 22:50:44 [http-nio-8080-exec-1] INFO  o.e.p.services.ReviewServiceImpl - Checking if user 1 has reviewed product 333
+2025-06-12 22:50:44 [http-nio-8080-exec-1] INFO  o.e.p.services.ReviewServiceImpl - User 1 has reviewed product 333
+2025-06-12 22:50:49 [http-nio-8080-exec-1] INFO  o.e.p.services.ReviewServiceImpl - Getting reviews for product id: 326
+2025-06-12 22:50:49 [http-nio-8080-exec-1] INFO  o.e.p.services.ReviewServiceImpl - Found 0 reviews for product 326
+2025-06-12 22:50:49 [http-nio-8080-exec-1] INFO  o.e.p.services.ReviewServiceImpl - Checking if user 1 has reviewed product 326
+2025-06-12 22:50:49 [http-nio-8080-exec-1] INFO  o.e.p.services.ReviewServiceImpl - User 1 has not reviewed product 326
+2025-06-12 22:51:34 [http-nio-8080-exec-4] INFO  o.e.p.services.AddressServiceImpl - Successfully saved address with ID: 50
+2025-06-12 22:56:44 [http-nio-8080-exec-7] INFO  o.e.p.services.ReviewServiceImpl - Getting reviews for product id: 333
+2025-06-12 22:56:44 [http-nio-8080-exec-7] INFO  o.e.p.services.ReviewServiceImpl - Found 1 reviews for product 333
+2025-06-12 22:56:44 [http-nio-8080-exec-7] INFO  o.e.p.services.ReviewServiceImpl - Checking if user 1 has reviewed product 333
+2025-06-12 22:56:44 [http-nio-8080-exec-7] INFO  o.e.p.services.ReviewServiceImpl - User 1 has reviewed product 333

@@ -1,3 +1,5 @@
+
+const csrfToken = document.getElementById("csrfToken")?.value;
 // Функция для обновления количества товаров в header
 function updateCartQuantity() {
     fetch('/cart/total-quantity')
@@ -187,15 +189,13 @@ document.addEventListener('DOMContentLoaded', function() {
 function showOrderModal() {
     const modal = document.getElementById('orderModal');
     modal.classList.add('show');
-    
-    // Обновляем сумму заказа в модальном окне
+
     updateTotalPrice();
-    
-    // Устанавливаем предполагаемую дату доставки (+7 дней)
+
     const deliveryDate = new Date();
     deliveryDate.setDate(deliveryDate.getDate() + 7);
     
-    // Форматируем дату для отправки на сервер (yyyy-MM-dd)
+
     const year = deliveryDate.getFullYear();
     const month = String(deliveryDate.getMonth() + 1).padStart(2, '0');
     const day = String(deliveryDate.getDate()).padStart(2, '0');
@@ -235,28 +235,32 @@ function closeOrderModal() {
 function submitOrder(event) {
     event.preventDefault();
     
-    const form = event.target;
-    const orderId = form.elements.orderId.value;
-    const city = form.elements.city.value;
-    const street = form.elements.street.value;
-    const house = form.elements.house.value;
-    const apartment = form.elements.apartment.value;
-    
-    // Формируем полный адрес
-    const address = `${city}, ${street}, ${house}, ${apartment}`;
-    
-    // Форматируем дату в формат ISO без миллисекунд и временной зоны
-    const deliveryDate = new Date();
-    deliveryDate.setDate(deliveryDate.getDate() + 7);
-    const formattedDate = deliveryDate.toISOString().split('.')[0]; // Убираем миллисекунды и timezone
+    const form = document.getElementById('orderForm');
+    const orderId = form.querySelector('[name="orderId"]').value;
+    const city = form.querySelector('[name="city"]').value;
+    const street = form.querySelector('[name="street"]').value;
+    const houseNumber = form.querySelector('[name="house"]').value;
+    const apartmentNumber = form.querySelector('[name="apartment"]').value;
+    const deliveryDate = form.querySelector('[name="deliveryDate"]').value;
+    const promoCode = form.querySelector('[name="promoCode"]').value;
+
+    // Преобразуем дату в нужный формат
+    const formattedDate = deliveryDate.replace('T', ' ');
     
     const formData = new FormData();
     formData.append('orderId', orderId);
-    formData.append('address', address);
-    formData.append('deliveryDate', formattedDate);
-    
+    formData.append('city', city);
+    formData.append('street', street);
+    formData.append('houseNumber', houseNumber);
+    formData.append('apartmentNumber', apartmentNumber);
+    formData.append('deliveryDateStr', formattedDate);
+    if (promoCode) {
+        formData.append('promoCode', promoCode);
+    }
+
     fetch('/cart/complete-order', {
         method: 'POST',
+        headers: {'X-CSRF-TOKEN': csrfToken},
         body: formData
     })
     .then(response => {
@@ -269,28 +273,15 @@ function submitOrder(event) {
     })
     .then(data => {
         if (data.status === 'success') {
-            // Закрываем модальное окно
-            closeOrderModal();
-            
-            // Очищаем корзину
-            const cartContainer = document.querySelector('.cart-container');
-            cartContainer.innerHTML = `
-                <h1>Корзина</h1>
-                <div class="empty-cart">
-                    <p>Заказ успешно оформлен!</p>
-                    <a href="/" class="continue-shopping">Продолжить покупки</a>
-                </div>
-            `;
-            
-            // Обновляем количество в header
-            updateCartQuantity();
+            alert('Заказ успешно оформлен!');
+            window.location.href = '/profile'; // Перенаправляем на страницу профиля
         } else {
             throw new Error('Ошибка при оформлении заказа');
         }
     })
     .catch(error => {
         console.error('Error completing order:', error);
-        alert(error.message);
+        alert('Произошла ошибка при оформлении заказа: ' + error.message);
     });
 }
 
@@ -300,4 +291,81 @@ window.onclick = function(event) {
     if (event.target === modal) {
         closeOrderModal();
     }
-} 
+}
+
+// Функция для проверки промокода и пересчета суммы
+function checkPromoCode() {
+    const promoCode = document.querySelector('#promoCode').value;
+    if (!promoCode) return;
+
+    const totalPriceElement = document.querySelector('.total-amount');
+    const originalPrice = extractPrice(totalPriceElement.textContent);
+
+    fetch('/discounts/apply-promo', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: `promoCode=${encodeURIComponent(promoCode)}&originalPrice=${originalPrice}`
+    })
+    .then(response => {
+        if (!response.ok) {
+            return response.json().then(data => {
+                throw new Error(data.message || 'Промокод недействителен');
+            });
+        }
+        return response.json();
+    })
+    .then(data => {
+        if (data.status === 'success') {
+            // Обновляем отображение цены
+            const elements = [
+                document.querySelector('.total-price span:last-child'),
+                document.querySelector('.total-amount')
+            ];
+
+            elements.forEach(element => {
+                if (element) {
+                    // Показываем старую цену
+                    const oldPriceElement = document.createElement('span');
+                    oldPriceElement.className = 'old-price';
+                    oldPriceElement.style.textDecoration = 'line-through';
+                    oldPriceElement.style.color = '#999';
+                    oldPriceElement.style.marginRight = '10px';
+                    oldPriceElement.textContent = `${originalPrice.toFixed(2)} руб`;
+
+                    // Показываем новую цену
+                    element.innerHTML = '';
+                    element.appendChild(oldPriceElement);
+                    element.appendChild(document.createTextNode(`${data.discountedPrice.toFixed(2)} руб`));
+                }
+            });
+
+            // Показываем сообщение об успехе
+            const messageElement = document.querySelector('#promoMessage') || document.createElement('div');
+            messageElement.id = 'promoMessage';
+            messageElement.className = 'text-success';
+            messageElement.style.marginTop = '5px';
+            messageElement.textContent = 'Промокод успешно применен!';
+            document.querySelector('#promoCode').parentNode.appendChild(messageElement);
+        }
+    })
+    .catch(error => {
+        console.error('Error applying promo code:', error);
+        // Показываем сообщение об ошибке
+        const messageElement = document.querySelector('#promoMessage') || document.createElement('div');
+        messageElement.id = 'promoMessage';
+        messageElement.className = 'text-danger';
+        messageElement.style.marginTop = '5px';
+        messageElement.textContent = error.message;
+        document.querySelector('#promoCode').parentNode.appendChild(messageElement);
+    });
+}
+
+// Добавляем обработчик события для поля промокода
+document.addEventListener('DOMContentLoaded', function() {
+    const promoCodeInput = document.querySelector('#promoCode');
+    if (promoCodeInput) {
+        promoCodeInput.addEventListener('change', checkPromoCode);
+    }
+}); 

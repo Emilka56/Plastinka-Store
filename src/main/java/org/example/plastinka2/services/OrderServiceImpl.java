@@ -69,16 +69,6 @@ public class OrderServiceImpl implements OrderService {
         }
     }
 
-//    @Override
-//    public Long saveToDataBaseAndGetId(OrderDto orders) {
-//        try {
-//            logger.info("Saving order");
-//            return orderRepository.saveToDataBaseAndGetId(orders);
-//        } catch (Exception e) {
-//            logger.error(e.getMessage());
-//            throw e;
-//        }
-//    }
 
     @Override
     public OrderDto getActiveOrderForUser(Long userId) {
@@ -102,43 +92,51 @@ public class OrderServiceImpl implements OrderService {
         }
     }
 
-//    @Override
-//    public void setInactiveOrder(Long ordersId) {
-//        try{
-//            orderRepository.setInactiveOrder(ordersId);
-//        }catch (Exception e) {
-//            logger.error(e.getMessage());
-//            throw e;
-//        }
-//    }
 
-//    @Override
-//    public List<Order> findAllOrdersByUserId(Long userId) {
-//        try{
-//            return orderRepository.findAllOrdersByUserId(userId);
-//        }catch (Exception e) {
-//            logger.error(e.getMessage());
-//            throw e;
-//        }
-//    }
-//
-//    @Override
-//    public List<Order> findAll() {
-//        try{
-//            return orderRepository.findAll();
-//        }catch (Exception e) {
-//            logger.error(e.getMessage());
-//            throw e;
-//        }
-//    }
-//
-//    @Override
-//    public void removeById(Long orderId) {
-//        try{
-//            orderRepository.removeById(orderId);
-//        }catch (Exception e) {
-//            logger.error(e.getMessage());
-//            throw e;
-//        }
-//    }
+    @Override
+    public List<Order> findByUser(User user) {
+        return orderRepository.findByUserOrderByCreatedAtDesc(user);
+    }
+
+
+    @Override
+    public Order findById(Long id) {
+        try {
+            logger.info("Поиск заказа по ID: {}", id);
+            return orderRepository.findById(id)
+                    .orElseThrow(() -> new RuntimeException("Заказ не найден с ID: " + id));
+        } catch (Exception e) {
+            logger.error("Ошибка при поиске заказа с ID: {}", id, e);
+            throw new RuntimeException("Ошибка при поиске заказа: " + e.getMessage());
+        }
+    }
+
+    @Override
+    public Order createOrder(User user) {
+        try {
+            logger.info("Создание нового заказа для пользователя: {}", user.getEmail());
+            Order order = Order.builder()
+                    .user(user)
+                    .isActive(true)
+                    .totalPrice(BigDecimal.ZERO)
+                    .createdAt(LocalDateTime.now())
+                    .build();
+            return orderRepository.save(order);
+        } catch (Exception e) {
+            logger.error("Ошибка при создании заказа для пользователя: {}", user.getEmail(), e);
+            throw new RuntimeException("Ошибка при создании заказа: " + e.getMessage());
+        }
+    }
+
+    @Override
+    public void save(Order order) {
+        try {
+            logger.info("Сохранение заказа с ID: {}", order.getId());
+            orderRepository.save(order);
+            logger.info("Заказ успешно сохранен");
+        } catch (Exception e) {
+            logger.error("Ошибка при сохранении заказа", e);
+            throw new RuntimeException("Ошибка при сохранении заказа: " + e.getMessage());
+        }
+    }
 }

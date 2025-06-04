@@ -1,0 +1,12 @@
+2025-06-19 00:37:30 [http-nio-8080-exec-5] INFO  o.e.p.services.ReviewServiceImpl - Getting reviews for product id: 333
+2025-06-19 00:37:30 [http-nio-8080-exec-5] INFO  o.e.p.services.ReviewServiceImpl - Found 1 reviews for product 333
+2025-06-19 00:37:30 [http-nio-8080-exec-5] INFO  o.e.p.services.ReviewServiceImpl - Checking if user 1 has reviewed product 333
+2025-06-19 00:37:30 [http-nio-8080-exec-5] INFO  o.e.p.services.ReviewServiceImpl - User 1 has reviewed product 333
+2025-06-19 00:37:33 [http-nio-8080-exec-6] INFO  o.e.p.services.ReviewServiceImpl - Toggling like for review 55 by user 1
+2025-06-19 00:37:33 [http-nio-8080-exec-6] INFO  o.e.p.services.ReviewServiceImpl - Removed like from review 55 by user 1
+2025-06-19 00:37:33 [http-nio-8080-exec-6] INFO  o.e.p.services.ReviewServiceImpl - Successfully saved review after toggling like
+2025-06-19 00:37:34 [http-nio-8080-exec-6] INFO  o.e.p.services.ReviewServiceImpl - Getting review by id: 55
+2025-06-19 00:37:34 [http-nio-8080-exec-1] INFO  o.e.p.services.ReviewServiceImpl - Toggling like for review 55 by user 1
+2025-06-19 00:37:34 [http-nio-8080-exec-1] INFO  o.e.p.services.ReviewServiceImpl - Added like to review 55 by user 1
+2025-06-19 00:37:34 [http-nio-8080-exec-1] INFO  o.e.p.services.ReviewServiceImpl - Successfully saved review after toggling like
+2025-06-19 00:37:34 [http-nio-8080-exec-1] INFO  o.e.p.services.ReviewServiceImpl - Getting review by id: 55

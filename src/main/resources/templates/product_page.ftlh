@@ -13,12 +13,13 @@
 </head>
 <body>
     <#include "header.ftlh">
+    <input type="hidden" id="csrfToken" name="${_csrf.parameterName}" value="${_csrf.token}">
     
     <main class="product-container">
         <div class="product-details">
             <div class="product-image-container">
                 <#if product.images?? && product.images?has_content>
-                    <img src="http://localhost:8080/files/${product.images[0].storageName}" alt="${product.album}" class="product-image">
+                    <img src="/files/${product.images[0].storageName}" alt="${product.album}" class="product-image">
                 </#if>
             </div>
             <div class="product-info">
@@ -26,6 +27,17 @@
                 <h2 class="album">${product.album}</h2>
                 <p class="genre">Жанр: ${product.genre}</p>
                 <p class="price">${product.price?string["0.00"]} руб</p>
+                
+                <#if product.previewUrl?? && product.previewUrl != "">
+                    <div class="audio-preview">
+                        <h3>Прослушать фрагмент:</h3>
+                        <audio controls>
+                            <source src="${product.previewUrl}" type="audio/mpeg">
+                            Ваш браузер не поддерживает аудио-элемент.
+                        </audio>
+                    </div>
+                </#if>
+                
                 <button class="add-to-cart" onclick="addToCart(${product.id})">
                     Добавить в корзину
                 </button>
@@ -67,7 +79,7 @@
                                 <span class="review-date">${review.formattedCreatedAt}</span>
                                 <span class="review-rating">
                                     <#list 1..5 as i>
-                                        <span class="star ${((review.rating!'0')?number >= i)?then('filled', '')}">★</span>
+                                        <span class="star ${((review.rating!'0')?number >= i?number)?then('filled', '')}">★</span>
                                     </#list>
                                 </span>
                             </div>

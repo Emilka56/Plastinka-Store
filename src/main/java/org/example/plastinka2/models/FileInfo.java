@@ -24,8 +24,10 @@ public class FileInfo {
     private String url;
 
 
+
     @ManyToOne
     @JsonBackReference
     @JoinColumn(name = "product_id")
     private Product product;
+
 }

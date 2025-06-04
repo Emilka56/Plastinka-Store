@@ -34,6 +34,7 @@ public class Order {
     @PrePersist
     protected void onCreate() {
         createdAt = LocalDateTime.now();
+        isActive = true; // При создании заказ всегда активен
     }
 
     @ManyToOne
@@ -62,6 +63,13 @@ public class Order {
     }
 
     public String getFormattedDeliveryTime() {
-        return deliveryTime != null ? dateConverter.convert(deliveryTime) : "";
+        return deliveryTime != null ? dateConverter.convert(deliveryTime) : "Дата доставки не назначена";
+    }
+
+    public String getStatus() {
+        if (deliveryTime != null) {
+            return "Дата доставки: " + getFormattedDeliveryTime();
+        }
+        return "Дата доставки не назначена";
     }
 }

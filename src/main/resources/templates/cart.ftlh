@@ -11,6 +11,7 @@
 </head>
 <body>
     <#include "header.ftlh">
+    <input type="hidden" id="csrfToken" name="${_csrf.parameterName}" value="${_csrf.token}">
     
     <main class="cart-container">
         <h1>Корзина</h1>
@@ -21,7 +22,7 @@
                     <div class="cart-item" data-product-id="${item.product.id}">
                         <div class="item-image">
                             <#if item.product.images?? && item.product.images?has_content>
-                                <img src="http://localhost:8080/files/${item.product.images[0].storageName}" alt="${item.product.album}">
+                                <img src="/files/${item.product.images[0].storageName}" alt="${item.product.album}">
                             </#if>
                         </div>
                         <div class="item-details">
@@ -54,12 +55,12 @@
             </div>
         </#if>
 
-        <!-- Модальное окно оформления заказа -->
         <div id="orderModal" class="modal">
             <div class="modal-content">
                 <span class="close" onclick="closeOrderModal()">&times;</span>
                 <h2>Оформление заказа</h2>
                 <form id="orderForm" onsubmit="submitOrder(event)">
+
                     <input type="hidden" name="orderId" value="${orderId!}">
                     <div class="form-group">
                         <label for="city">Город:</label>
@@ -76,6 +77,14 @@
                     <div class="form-group">
                         <label for="apartment">Номер квартиры:</label>
                         <input type="number" id="apartment" name="apartment" required placeholder="Введите номер квартиры">
+                    </div>
+                    <div class="form-group">
+                        <label for="promoCode">Промокод:</label>
+                        <input type="text" id="promoCode" name="promoCode" placeholder="Введите промокод">
+                    </div>
+                    <div class="form-group">
+                        <label for="deliveryDate">Дата и время доставки:</label>
+                        <input type="datetime-local" id="deliveryDate" name="deliveryDate" required>
                     </div>
                     <div class="order-info">
                         <p>Сумма заказа: <span class="total-amount">${totalPrice} руб</span></p>

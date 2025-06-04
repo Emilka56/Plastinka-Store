@@ -1,0 +1,12 @@
+2025-06-18 18:45:28 [http-nio-8080-exec-5] INFO  o.e.p.services.OrderServiceImpl - Creating new order for user 1
+2025-06-18 18:45:28 [http-nio-8080-exec-5] INFO  o.e.p.services.OrderServiceImpl - Successfully created new order with id 52 and cart
+2025-06-18 18:47:13 [http-nio-8080-exec-9] INFO  o.e.p.services.OrderServiceImpl - Поиск заказа по ID: 52
+2025-06-18 18:47:13 [http-nio-8080-exec-9] INFO  o.e.p.services.OrderServiceImpl - Сохранение заказа с ID: 52
+2025-06-18 18:47:13 [http-nio-8080-exec-9] INFO  o.e.p.services.OrderServiceImpl - Заказ успешно сохранен
+2025-06-18 22:48:32 [http-nio-8080-exec-9] INFO  o.e.p.services.OrderServiceImpl - Creating new order for user 1
+2025-06-18 22:48:32 [http-nio-8080-exec-9] INFO  o.e.p.services.OrderServiceImpl - Successfully created new order with id 53 and cart
+2025-06-18 22:51:30 [http-nio-8080-exec-5] INFO  o.e.p.services.OrderServiceImpl - Поиск заказа по ID: 53
+2025-06-18 22:51:30 [http-nio-8080-exec-5] INFO  o.e.p.services.OrderServiceImpl - Сохранение заказа с ID: 53
+2025-06-18 22:51:30 [http-nio-8080-exec-5] INFO  o.e.p.services.OrderServiceImpl - Заказ успешно сохранен
+2025-06-18 23:01:38 [http-nio-8080-exec-9] INFO  o.e.p.services.OrderServiceImpl - Creating new order for user 1
+2025-06-18 23:01:38 [http-nio-8080-exec-9] INFO  o.e.p.services.OrderServiceImpl - Successfully created new order with id 54 and cart

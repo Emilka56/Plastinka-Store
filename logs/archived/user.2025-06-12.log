@@ -1,0 +1,40 @@
+2025-06-12 22:06:43 [http-nio-8080-exec-9] INFO  o.e.p.services.UserServiceImpl - Searching for user by email: yahudinaemilia@gmail.com
+2025-06-12 22:06:43 [http-nio-8080-exec-1] INFO  o.e.p.services.UserServiceImpl - Attempting to get user from session with email: yahudinaemilia@gmail.com
+2025-06-12 22:07:11 [http-nio-8080-exec-1] INFO  o.e.p.services.UserServiceImpl - Attempting to get user from session with email: yahudinaemilia@gmail.com
+2025-06-12 22:07:11 [http-nio-8080-exec-4] INFO  o.e.p.services.UserServiceImpl - Attempting to get user from session with email: yahudinaemilia@gmail.com
+2025-06-12 22:07:11 [http-nio-8080-exec-3] INFO  o.e.p.services.UserServiceImpl - Attempting to get user from session with email: yahudinaemilia@gmail.com
+2025-06-12 22:07:23 [http-nio-8080-exec-1] INFO  o.e.p.services.UserServiceImpl - Searching for user by email: yahudinaemilia@gmail.com
+2025-06-12 22:07:34 [http-nio-8080-exec-10] INFO  o.e.p.services.UserServiceImpl - Searching for user by email: yahudinaemilia@gmail.com
+2025-06-12 22:50:41 [http-nio-8080-exec-9] INFO  o.e.p.services.UserServiceImpl - Searching for user by email: yahudinaemilia@gmail.com
+2025-06-12 22:50:43 [http-nio-8080-exec-8] INFO  o.e.p.services.UserServiceImpl - Attempting to get user from session with email: yahudinaemilia@gmail.com
+2025-06-12 22:50:44 [http-nio-8080-exec-1] INFO  o.e.p.services.UserServiceImpl - Attempting to get user from session with email: yahudinaemilia@gmail.com
+2025-06-12 22:50:44 [http-nio-8080-exec-8] INFO  o.e.p.services.UserServiceImpl - Attempting to get user from session with email: yahudinaemilia@gmail.com
+2025-06-12 22:50:44 [http-nio-8080-exec-1] INFO  o.e.p.services.UserServiceImpl - Attempting to get user from session with email: yahudinaemilia@gmail.com
+2025-06-12 22:50:45 [http-nio-8080-exec-9] INFO  o.e.p.services.UserServiceImpl - Attempting to get user from session with email: yahudinaemilia@gmail.com
+2025-06-12 22:50:45 [http-nio-8080-exec-7] INFO  o.e.p.services.UserServiceImpl - Attempting to get user from session with email: yahudinaemilia@gmail.com
+2025-06-12 22:50:46 [http-nio-8080-exec-5] INFO  o.e.p.services.UserServiceImpl - Attempting to get user from session with email: yahudinaemilia@gmail.com
+2025-06-12 22:50:46 [http-nio-8080-exec-4] INFO  o.e.p.services.UserServiceImpl - Attempting to get user from session with email: yahudinaemilia@gmail.com
+2025-06-12 22:50:47 [http-nio-8080-exec-2] INFO  o.e.p.services.UserServiceImpl - Searching for user by email: yahudinaemilia@gmail.com
+2025-06-12 22:50:48 [http-nio-8080-exec-3] INFO  o.e.p.services.UserServiceImpl - Attempting to get user from session with email: yahudinaemilia@gmail.com
+2025-06-12 22:50:49 [http-nio-8080-exec-1] INFO  o.e.p.services.UserServiceImpl - Attempting to get user from session with email: yahudinaemilia@gmail.com
+2025-06-12 22:50:49 [http-nio-8080-exec-3] INFO  o.e.p.services.UserServiceImpl - Attempting to get user from session with email: yahudinaemilia@gmail.com
+2025-06-12 22:50:49 [http-nio-8080-exec-1] INFO  o.e.p.services.UserServiceImpl - Attempting to get user from session with email: yahudinaemilia@gmail.com
+2025-06-12 22:50:50 [http-nio-8080-exec-8] INFO  o.e.p.services.UserServiceImpl - Attempting to get user from session with email: yahudinaemilia@gmail.com
+2025-06-12 22:50:50 [http-nio-8080-exec-10] INFO  o.e.p.services.UserServiceImpl - Attempting to get user from session with email: yahudinaemilia@gmail.com
+2025-06-12 22:50:51 [http-nio-8080-exec-5] INFO  o.e.p.services.UserServiceImpl - Attempting to get user from session with email: yahudinaemilia@gmail.com
+2025-06-12 22:50:51 [http-nio-8080-exec-1] INFO  o.e.p.services.UserServiceImpl - Attempting to get user from session with email: yahudinaemilia@gmail.com
+2025-06-12 22:50:51 [http-nio-8080-exec-10] INFO  o.e.p.services.UserServiceImpl - Attempting to get user from session with email: yahudinaemilia@gmail.com
+2025-06-12 22:51:07 [http-nio-8080-exec-6] INFO  o.e.p.services.UserServiceImpl - Searching for user by email: yahudinaemilia@gmail.com
+2025-06-12 22:51:35 [http-nio-8080-exec-7] INFO  o.e.p.services.UserServiceImpl - Searching for user by email: yahudinaemilia@gmail.com
+2025-06-12 22:56:41 [http-nio-8080-exec-8] INFO  o.e.p.services.UserServiceImpl - Searching for user by email: yahudinaemilia@gmail.com
+2025-06-12 22:56:43 [http-nio-8080-exec-5] INFO  o.e.p.services.UserServiceImpl - Attempting to get user from session with email: yahudinaemilia@gmail.com
+2025-06-12 22:56:44 [http-nio-8080-exec-7] INFO  o.e.p.services.UserServiceImpl - Attempting to get user from session with email: yahudinaemilia@gmail.com
+2025-06-12 22:56:44 [http-nio-8080-exec-5] INFO  o.e.p.services.UserServiceImpl - Attempting to get user from session with email: yahudinaemilia@gmail.com
+2025-06-12 22:56:44 [http-nio-8080-exec-7] INFO  o.e.p.services.UserServiceImpl - Attempting to get user from session with email: yahudinaemilia@gmail.com
+2025-06-12 22:56:46 [http-nio-8080-exec-6] INFO  o.e.p.services.UserServiceImpl - Attempting to get user from session with email: yahudinaemilia@gmail.com
+2025-06-12 22:56:46 [http-nio-8080-exec-4] INFO  o.e.p.services.UserServiceImpl - Attempting to get user from session with email: yahudinaemilia@gmail.com
+2025-06-12 22:56:46 [http-nio-8080-exec-2] INFO  o.e.p.services.UserServiceImpl - Attempting to get user from session with email: yahudinaemilia@gmail.com
+2025-06-12 22:56:47 [http-nio-8080-exec-7] INFO  o.e.p.services.UserServiceImpl - Attempting to get user from session with email: yahudinaemilia@gmail.com
+2025-06-12 22:56:47 [http-nio-8080-exec-6] INFO  o.e.p.services.UserServiceImpl - Attempting to get user from session with email: yahudinaemilia@gmail.com
+2025-06-12 22:57:02 [http-nio-8080-exec-2] INFO  o.e.p.services.UserServiceImpl - Searching for user by email: yahudinaemilia@gmail.com
+2025-06-12 22:57:13 [http-nio-8080-exec-10] INFO  o.e.p.services.UserServiceImpl - Searching for user by email: yahudinaemilia@gmail.com

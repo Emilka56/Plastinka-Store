@@ -1,5 +1,7 @@
 // Функция для добавления отзыва
 function submitReview(event) {
+    const csrfToken = document.getElementById("csrfToken")?.value;
+
     event.preventDefault();
     
     const form = event.target;
@@ -16,6 +18,7 @@ function submitReview(event) {
         method: 'POST',
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
+            'X-CSRF-TOKEN': csrfToken
         },
         body: `productId=${encodeURIComponent(productId)}&text=${encodeURIComponent(text)}&rating=${encodeURIComponent(rating)}`
     })
@@ -92,11 +95,15 @@ function formatDate(dateStr) {
 
 // Функция для обработки лайков
 function toggleLike(reviewId, button) {
+    const csrfToken = document.getElementById("csrfToken")?.value;
     const formData = new FormData();
     formData.append('reviewId', reviewId);
     
     fetch('/reviews/like', {
         method: 'POST',
+        headers: {
+            'X-CSRF-TOKEN': csrfToken
+        },
         body: formData
     })
     .then(response => response.json())

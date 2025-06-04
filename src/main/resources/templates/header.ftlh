@@ -1,7 +1,8 @@
 <link rel="stylesheet" href="/styles/header.css">
 <link rel="stylesheet" href="/styles/font.css">
-
+<body> <input type="hidden" id="csrfToken" name="${_csrf.parameterName}" value="${_csrf.token}">
 <header>
+    <input type="hidden" id="csrfToken" name="${_csrf.parameterName}" value="${_csrf.token}">
     <nav>
         <ul class="nav">
             <#if user??>
@@ -14,7 +15,7 @@
                     <option value="" selected disabled>Выберите жанр</option>
                     <#if genres??>
                         <#list genres as genre>
-                            <option value="#${genre}">${genre}</option>
+                            <option value="#genre-${genre?counter}">${genre}</option>
                         </#list>
                     </#if>
                 </select>
@@ -23,7 +24,7 @@
                 <a class="nav-button" href="/cart">КОРЗИНА<span id="cart-item-count"></span></a>
             </li>
             <#if user?? && user.role == 'ADMIN'>
-                <li><a class="nav-button" href="/adminPage">АДМИН</a></li>
+                <li><a class="nav-button" href="/discounts/manage">СКИДКИ</a></li>
             </#if>
             <#if user??>
                 <li><a class="nav-button" href="/logout">ВЫЙТИ</a></li>
@@ -33,6 +34,7 @@
         </ul>
     </nav>
 </header>
+</body>
 
 <script>
 document.querySelector('.genre-btn').addEventListener('click', function(e) {

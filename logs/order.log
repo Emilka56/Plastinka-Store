@@ -1,0 +1,3 @@
+2025-06-19 00:38:16 [http-nio-8080-exec-4] INFO  o.e.p.services.OrderServiceImpl - Поиск заказа по ID: 54
+2025-06-19 00:38:16 [http-nio-8080-exec-4] INFO  o.e.p.services.OrderServiceImpl - Сохранение заказа с ID: 54
+2025-06-19 00:38:16 [http-nio-8080-exec-4] INFO  o.e.p.services.OrderServiceImpl - Заказ успешно сохранен

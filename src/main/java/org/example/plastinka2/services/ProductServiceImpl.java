@@ -122,4 +122,25 @@ public class ProductServiceImpl implements ProductService {
             throw new RuntimeException("Error saving product", e);
         }
     }
+
+    @Override
+    public boolean existsByArtistAndAlbum(String artist, String album) {
+        return productRepository.findAll().stream()
+                .anyMatch(product -> 
+                    product.getArtist().equalsIgnoreCase(artist) && 
+                    product.getAlbum().equalsIgnoreCase(album)
+                );
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public List<Product> findByGenre(String genre) {
+        try {
+            logger.info("Finding products by genre: {}", genre);
+            return productRepository.findByGenreCaseInsensitive(genre);
+        } catch (Exception e) {
+            logger.error("Error finding products by genre: {}", genre, e);
+            throw new RuntimeException("Error finding products by genre", e);
+        }
+    }
 }

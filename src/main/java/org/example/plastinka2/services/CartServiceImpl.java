@@ -24,27 +24,6 @@ public class CartServiceImpl implements CartService {
     @Autowired
     private OrderRepository orderRepository;
 
-//    @Override
-//    public List<Product> findProductsByUserId(Long user_id) {
-//        try{
-//            logger.info("Finding products by id: " + user_id);
-//            return cartRepository.findProductsByUserId(user_id);
-//        }catch (Exception e){
-//            logger.error("error getting products by id: " + user_id, e);
-//            throw e;
-//        }
-//
-//    }
-//
-//    @Override
-//    public List<Product> findProductsByOrderId(Long order_id) {
-//        try{
-//            logger.info("Finding products by order id: " + order_id);
-//            return cartRepository.findProductsByOrderId(order_id);
-//        } catch (Exception e) {
-//            throw new RuntimeException("error getting products by order id: " + order_id, e);
-//        }
-//    }
 
     @Override
     public Cart findByOrderId(Long orderId) {

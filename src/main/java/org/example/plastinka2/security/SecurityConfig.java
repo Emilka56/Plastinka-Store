@@ -32,13 +32,17 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.csrf().disable()
+        http
+                .csrf(csrf -> csrf
+                        .ignoringAntMatchers("/cart/**")
+                )
                 .authorizeRequests()
                 .antMatchers("/styles/**", "/fonts/**", "/images/**", "/js/**", "/files/**").permitAll() // Статические ресурсы
-                .antMatchers("/", "/signIn", "/signUp", "/logout", "/login?logout", "/mainPage").permitAll() // Страницы входа/регистрации
-                .antMatchers("/product/**").permitAll() // Разрешаем просмотр страниц товаров
+                .antMatchers("/", "/signIn", "/signUp", "/logout", "/login?logout", "/mainPage", "/mainPage/load").permitAll() // Страницы входа/регистрации
+                .antMatchers("/product/**").permitAll()
                 .antMatchers("/confirm/**").permitAll()
                 .antMatchers("/admin/**").hasAuthority("ADMIN")
+                .antMatchers("/discounts/**").hasAuthority("ADMIN")
                 .anyRequest().authenticated()
 
                 .and()

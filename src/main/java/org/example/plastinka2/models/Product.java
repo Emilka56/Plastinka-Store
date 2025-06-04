@@ -26,6 +26,7 @@ public class Product {
     private String album;
     private String genre;
     private BigDecimal price;
+    private String previewUrl;
 
     @OneToMany(mappedBy = "product")
     private List<SingleOrder> singleOrders;

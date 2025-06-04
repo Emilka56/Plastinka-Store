@@ -17,4 +17,8 @@ public interface ProductService {
     void removeById(Long id);
 
     void save(Product product);
+
+    boolean existsByArtistAndAlbum(String artist, String album);
+
+    List<Product> findByGenre(String genre);
 }

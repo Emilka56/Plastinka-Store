@@ -2,6 +2,7 @@ package org.example.plastinka2.repository;
 
 import org.example.plastinka2.dto.OrderDto;
 import org.example.plastinka2.models.Order;
+import org.example.plastinka2.models.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -36,4 +37,6 @@ public interface OrderRepository extends JpaRepository<Order, Long> {
     @Transactional
     @Query(value = "INSERT INTO order_address (order_id, address_id) VALUES (:orderId, :addressId)", nativeQuery = true)
     void updateOrderByAddressId(@Param("orderId") Long orderId, @Param("addressId") Long addressId);
+
+    List<Order> findByUserOrderByCreatedAtDesc(User user);
 }

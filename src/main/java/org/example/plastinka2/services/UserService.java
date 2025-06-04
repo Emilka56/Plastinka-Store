@@ -9,4 +9,5 @@ public interface UserService {
     User findByConfirmCode(String code);
     User findByEmail(String email);
     User getUserFromSession();
+    void save(User user);
 }
