@@ -1,0 +1,223 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-primary);
+    font-family: var(--font);
+    margin: 0;
+    min-height: 100vh;
+    padding-top: 60px;
+}
+
+.main-image-container {
+    position: relative;
+    width: 100%;
+    height: 60vh;
+    overflow: hidden;
+}
+
+.main-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.9;
+    filter: brightness(0.9);
+}
+
+h1 {
+    position: relative;
+    color: #ffffff;
+    font-size: 4rem;
+    font-family: Arizonia-Regular, "Arizonia-Regular", sans-serif;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin: -7rem 0;
+    z-index: 1;
+}
+
+.name-genre {
+    text-align: center;
+    color: var(--text-primary);
+    font-size: 1.5rem;
+    margin: 2rem 0;
+    font-family: Arizonia-Regular, "Arizonia-Regular", sans-serif;
+}
+
+h3 {
+    font-size: 30px;
+    color: white;
+    margin: 10px 0;
+    font-family: Arizonia-Regular, "Arizonia-Regular", sans-serif;
+    left: 50%;
+}
+
+.genre {
+    padding: 2rem;
+}
+
+.ui-genre {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin: 0;
+}
+
+.ui-genre li a {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--primary-dark);
+    color: var(--text-primary);
+    text-decoration: none;
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+}
+
+.ui-genre li a:hover {
+    background-color: var(--button-hover);
+    transform: translateY(-2px);
+}
+
+.name-genre {
+    text-align: center;
+    color: var(--text-primary);
+    font-size: 1.5rem;
+    margin: 2rem 0;
+}
+
+h1 {
+    position: relative;
+    color: #ffffff;
+    font-size: 7rem;
+    font-family: Arizonia-Regular, "Arizonia-Regular", sans-serif;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin:-12rem 0 7rem 10rem;
+    z-index: 1;
+}
+h2 {
+    text-align: center;
+    color: var(--text-primary);
+    margin: 2rem 0;
+    font-size: 2rem;
+}
+
+.product {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.product-card {
+    background-color: var(--primary-dark);
+    border-radius: var(--border-radius);
+    padding: 1rem;
+    box-shadow: var(--box-shadow);
+    transition: var(--transition);
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.product-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: var(--border-radius);
+    margin-bottom: 1rem;
+}
+
+.artist {
+    color: var(--text-primary);
+    font-size: 1.2rem;
+    margin: 0.5rem 0;
+    font-weight: bold;
+}
+
+.album {
+    color: var(--text-secondary);
+    margin: 0.5rem 0;
+}
+
+.price {
+    color: var(--text-primary);
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 0.5rem 0;
+}
+
+.form-group {
+    margin-top: 1rem;
+}
+
+.file-input-wrapper {
+    position: relative;
+    margin-top: 0.5rem;
+}
+
+.file-input {
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.file-input-label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem;
+    background-color: var(--secondary-dark);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+}
+
+.file-input-text {
+    color: var(--text-secondary);
+}
+
+.file-input-button {
+    background-color: var(--button-color);
+    color: var(--background-color);
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+}
+
+.file-input-label:hover .file-input-button {
+    background-color: var(--button-hover);
+    color: var(--text-primary);
+}
+
+.image-preview-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.addInCart {
+    display: block;
+    margin: 16px auto 0;
+    padding: 10px 20px;
+    background-color: #7a1f1f;
+    color: white;
+    font-size: 17px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: Roboto, "SemiBold 600", sans-serif;
+}
+
+.addInCart:hover {
+    background-color: #551414;
+    color: white;
+}
+

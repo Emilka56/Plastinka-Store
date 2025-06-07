@@ -1,0 +1,96 @@
+* {
+    box-sizing: border-box;
+    font-family: Roboto, "SemiBold 600", sans-serif;
+    scroll-behavior: smooth; /* Плавная прокрутка */
+}
+
+li {
+    list-style: none;
+    width: 10%;
+}
+
+.nav {
+    margin: 0;
+    display: flex;
+    gap: 3%;
+    padding: 10px 0;
+    list-style-type: none;
+    justify-content: space-evenly;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: black;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.nav a {
+    background-color: black;
+    color: #cccccc;
+    font-size: 0.8rem;
+    font-family: Roboto, "SemiBold 600", sans-serif;
+    font-weight: 540;
+    width: 200px;
+    height: 40px;
+    line-height: 2.5;
+    border-radius: 5px;
+    border: 1px solid white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.53);
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+}
+
+.nav a:hover {
+    background-color: #851414;
+}
+
+.genre-select {
+    display: none;
+    background-color: black;
+    color: #cccccc;
+    font-size: 0.8rem;
+    font-family: Roboto, "SemiBold 600", sans-serif;
+    font-weight: 540;
+    width: 200px;
+    height: 40px;
+    border-radius: 5px;
+    border: 1px solid white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.53);
+    text-align: center;
+    cursor: pointer;
+    padding: 0 10px;
+}
+
+.genre-select option {
+    background-color: black;
+    color: #cccccc;
+    padding: 10px;
+}
+
+.genre-select option:hover {
+    background-color: #851414;
+}
+
+.genre-select.active {
+    display: block;
+}
+
+body {
+    padding-top: 60px;
+}
+
+.nav-button {
+    position: relative;
+}
+
+#cart-item-count {
+    position: absolute; /* Позиционируем справа от текста */ /* Немного отступаем от верхней границы */ /* Цвет фона для числа */
+    color: white; /* Цвет текста */
+    border-radius: 50%; /* Сделать круглый фон */
+    padding: 5px 10px; /* Отступы вокруг числа */
+    font-size: 14px; /* Размер шрифта числа */
+    top: -20%;
+    right: 16%
+}

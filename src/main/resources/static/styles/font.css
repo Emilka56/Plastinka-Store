@@ -1,0 +1,15 @@
+@font-face{
+    font-family: Roboto;
+    src: local("Roboto-Regular"), url(/fonts/Roboto-Regular.ttf);
+    font-weight: 400;
+}
+@font-face{
+    font-family: Arizonia-Regular;
+    src: local("Arizonia-Regular"), url(/fonts/Arizonia-Regular.ttf);
+    font-weight: 400;
+}
+@font-face{
+    font-family: Roboto-Bold;
+    src: local("Roboto-SemiBold"), url(/fonts/Roboto-SemiBold.ttf);
+    font-weight: 600;
+}

@@ -1,0 +1,83 @@
+/* Общие стили для страницы */
+body {
+    background-color: #1a1a1a;
+    font-family: 'Roboto-Bold', serif;
+    color: #ccc;
+    margin: 0;
+    padding: 0;
+}
+
+/* Логотип */
+.logo {
+    display: block;
+    margin: 20px auto;
+}
+
+/* Стили для формы */
+.order-form {
+    background-color: #333333;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 10px;
+    width: 500px;
+
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.53);
+    position: absolute;
+    left: 30%;
+}
+
+/* Метки */
+label {
+    display: block;
+    margin: 10px 0 5px;
+    font-size: 14px;
+    color: #ccc;
+}
+
+/* Инпуты */
+input[type="text"],
+input[type="number"],
+input[type="date"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    background-color:rgba(221, 221, 221, 0.3) ;
+    color: #ccc;
+    border-radius: 5px;
+    font-size:  18px;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+input[type="date"]:focus {
+    border-color: #ff4c4c;
+    outline: none;
+}
+
+/* Кнопка */
+button {
+    background-color: #7a1f1f;
+    color: #ccc;
+    /*border: 1px solid white;*/
+    padding: 10px 15px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease;
+    border: none;
+
+}
+input {
+    border: rgba(193, 192, 192, 0.3) solid 1px;
+}
+button:hover {
+    background-color: #4e1313;
+}
+
+/* Заголовки */
+h1 {
+    font-size: 24px;
+    color: #ccc;
+    text-align: center;
+}

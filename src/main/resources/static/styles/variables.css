@@ -1,0 +1,23 @@
+:root{
+    --background-color: #121212;
+    --button-color: #ffffff;
+    --button-text-color: #FFFFFF;
+    --navigation-text-color: #222222;
+    --text-color: #000000;
+    --icons-color: #000000;
+    --font: "Roboto";
+    --footer-color: #CDFD3B;
+    --border-color: #333333;
+    --primary-dark: #1a1a1a;
+    --secondary-dark: #2d2d2d;
+    --accent-color: #7c4dff;
+    --accent-hover: #651fff;
+    --text-primary: #ffffff;
+    --text-secondary: #b3b3b3;
+    --error-color: #ff0000;
+    --success-color: #4caf50;
+    --border-radius: 8px;
+    --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    --transition: all 0.3s ease;
+    --button-hover: #8B0000;
+}

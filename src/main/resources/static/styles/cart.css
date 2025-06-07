@@ -1,0 +1,418 @@
+* {
+    box-sizing: border-box;
+    font-family: Roboto, "SemiBold 600", sans-serif;
+}
+
+body {
+    background-color: black; /* Фон страницы черный */
+    color: white; /* Цвет текста белый */
+    font-family: Roboto, "SemiBold 600", sans-serif; /* Основной шрифт */
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Стили для контейнера продукта */
+.product-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+/* Стили для карточки продукта */
+.product-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    background-color: #1c1c1c;
+    border: 1px solid #333;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 20px 0;
+    width: 80%;
+    max-width: 800px;
+    position: relative; /* Для позиционирования quantity-div */
+}
+
+/* Стили для изображения продукта */
+.product-img {
+    max-width: 150px;
+    max-height: 150px;
+    border-radius: 8px;
+    margin-right: 20px;
+    object-fit: cover;
+}
+
+/* Стили для текста в карточке продукта */
+.product-card p {
+    margin: 5px 0;
+}
+
+/* Стили для quantity-div */
+.quantity-div {
+    position: absolute; /* Абсолютное позиционирование */
+    right: 20px; /* Отступ справа */
+    top: 50%; /* Центрирование по вертикали */
+    transform: translateY(-50%); /* Корректировка центрирования */
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Отступ между элементами */
+}
+
+/* Стили для текста количества */
+.quantity {
+    margin: 0;
+    font-size: 30px;
+    color: black;
+}
+
+/* Стили для ссылки удаления */
+.delete {
+    color: white;
+    text-decoration: none;
+    font-size: 30px;
+    cursor: pointer;
+    transition: color 0.3s ease; /* Анимация изменения цвета */
+}
+
+/* Подсветка ссылки при наведении */
+.delete:hover {
+    color: #ff4d4d; /* Красный цвет при наведении */
+}
+
+/* Стили для кнопки оформления заказа */
+.order-button {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: black;
+    color: white;
+    border: 2px solid white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none; /* Убираем подчеркивание */
+    text-align: center;
+}
+
+.order-button:hover {
+    background-color: white;
+    color: black;
+}
+
+.order-button:active {
+    transform: translateX(-50%) scale(0.95);
+}
+
+.cart-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.cart-container h1 {
+    margin-bottom: 2rem;
+    color: white;
+    font-family: Roboto, sans-serif;
+}
+
+.cart-items {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+}
+
+.cart-item {
+    display: flex;
+    padding: 1rem;
+    border-bottom: 1px solid #eee;
+    align-items: center;
+}
+
+.cart-item:last-child {
+    border-bottom: none;
+}
+
+.item-image {
+    width: 120px;
+    height: 120px;
+    margin-right: 1.5rem;
+}
+
+.item-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.item-details {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.item-details h3 {
+    margin: 0;
+    color: #333;
+    font-family: Roboto, sans-serif;
+}
+
+.item-price {
+    color: #7a1f1f;
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin: 0;
+}
+
+.quantity-controls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.quantity-controls button {
+    background: #7a1f1f;
+    color: white;
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+.quantity-controls button:hover {
+    background: #551414;
+}
+
+.quantity-controls input {
+    width: 60px;
+    height: 30px;
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1.1rem;
+    color: black;
+}
+
+.quantity-controls input:focus {
+    outline: none;
+    border-color: #7a1f1f;
+}
+
+/* Убираем стрелки у input type="number" */
+.quantity-controls input::-webkit-outer-spin-button,
+.quantity-controls input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.quantity-controls input[type=number] {
+    -moz-appearance: textfield;
+}
+
+.remove-button {
+    background: none;
+    border: 1px solid #7a1f1f;
+    color: #7a1f1f;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    align-self: flex-start;
+    font-family: Roboto, sans-serif;
+}
+
+.remove-button:hover {
+    background: #7a1f1f;
+    color: white;
+}
+
+.cart-summary {
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 2px solid #eee;
+}
+
+.total-price {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color:black;
+}
+
+.checkout-button {
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    background: #7a1f1f;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    font-family: Roboto, sans-serif;
+}
+
+.checkout-button:hover {
+    background: #551414;
+}
+
+.empty-cart {
+    text-align: center;
+    padding: 3rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.empty-cart p {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 1.5rem;
+}
+
+.continue-shopping {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background: #7a1f1f;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-family: Roboto, sans-serif;
+}
+
+.continue-shopping:hover {
+    background: #551414;
+}
+
+/* Стили для модального окна */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: -170px;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: white;
+    margin: 15% auto;
+    padding: 20px;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 500px;
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    font-size: 28px;
+    font-weight: bold;
+    color: #666;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: #000;
+}
+
+.modal h2 {
+    color: #333;
+    margin-bottom: 20px;
+    font-family: Roboto, sans-serif;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+    font-family: Roboto, sans-serif;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #7a1f1f;
+}
+
+.order-info {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+.order-info p {
+    margin: 5px 0;
+    color: #333;
+    font-family: Roboto, sans-serif;
+}
+
+.total-amount {
+    font-weight: bold;
+    color: #7a1f1f;
+}
+
+.delivery-date {
+    font-weight: bold;
+}
+
+.submit-order {
+    width: 100%;
+    padding: 10px;
+    background-color: #7a1f1f;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    font-family: Roboto, sans-serif;
+}
+
+.submit-order:hover {
+    background-color: #551414;
+}
+
+/* Анимация для модального окна */
+@keyframes modalFadeIn {
+    from {opacity: 0}
+    to {opacity: 1}
+}
+
+.modal.show {
+    display: block;
+    animation: modalFadeIn 0.3s;
+}

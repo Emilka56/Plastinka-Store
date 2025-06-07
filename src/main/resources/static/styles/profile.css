@@ -1,0 +1,178 @@
+/* Основной стиль для страницы */
+body {
+    font-family: 'Roboto', 'SemiBold', sans-serif;
+    background-color: black;
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+a{
+    background-color: black;
+    color: #cccccc;
+    font-size: 0.8rem;
+    font-family: Roboto, "SemiBold 600", sans-serif;
+    font-weight: 540;
+    width: 200px;
+    height: 40px;
+    line-height: 2.5;
+    border-radius: 5px;
+    border: 1px solid white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.53);
+    text-decoration: none;
+    display: inline-block;
+    text-align: center; 
+}
+a:hover {
+    background-color: #9a2a2a;
+}
+
+/* Контейнер формы */
+.form-container {
+    padding: 5px;
+    background-color: #2a2a2a;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    margin-left: 60px;
+    margin-right: 60px;
+}
+
+
+/* Стиль для формы */
+.form-group {
+    margin-bottom: 10px;
+}
+
+/* Кнопка отправки формы */
+button {
+    background-color: #b83d3d;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #9a2a2a;
+}
+
+/* Стиль для блока информации о пользователе */
+.info {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    width: 100%;
+    position: absolute;
+    left: 50%;
+}
+.info p{
+    font-size: 23px;
+}
+
+
+/* Стиль для блока аватара */
+.avatar-preview {
+    text-align: center;
+    max-width: 200px;
+    width: 100%;
+}
+
+/* Изображение аватара */
+#previewImage {
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+}
+
+/* Стиль для лейблов */
+label {
+    color: #b83d3d;
+    font-weight: 600;
+}
+
+/* Дополнительное выравнивание для аватара */
+.form-container .avatar-preview {
+    align-self: flex-start;
+}
+
+/* Контейнер для левой части с аватаром и информацией */
+.left-column {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.order-card {
+    display: flex;
+    flex-direction: row;
+    gap:15px;
+    background-color: #1c1c1c;
+    border: 2px solid white;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 20px 230px;
+    font-family: 'Roboto', 'SemiBold', sans-serif;
+    color: white;
+    max-width: 800px;
+    width: 100%;
+}
+
+/* Стили для дат и цены заказа */
+.orders_date, .delivery_date, .price {
+    margin: 5px 0; /* Отступы между строками */
+    font-size: 16px; /* Размер текста */
+}
+
+/* Контейнер для продуктов внутри заказа */
+.product-card {
+    display: flex;
+    flex-direction: column; /* Располагаем элементы продукта вертикально */
+    align-items: center; /* Центрируем элементы по горизонтали */
+    background-color: black; /* Черный фон карточки продукта */
+    border: 1px solid white; /* Белая обводка */
+    border-radius: 8px; /* Скругленные углы */
+    padding: 15px;
+    margin: 10px 0; /* Отступ между карточками продуктов */
+    width: 100%; /* Ширина карточки продукта */
+    box-sizing: border-box; /* Учитываем padding в ширине */
+}
+
+
+.product-img {
+    max-width: 100px; /* Ограничение размера изображения */
+    max-height: 100px;
+    border-radius: 8px; /* Скругленные углы изображения */
+    margin-bottom: 10px; /* Отступ снизу от изображения */
+    object-fit: cover; /* Корректное отображение изображения */
+}
+
+
+.artist, .album, .quantity, .price {
+    margin: 5px 0; /* Отступы между строками */
+    font-size: 14px; /* Размер текста */
+    text-align: center; /* Центрируем текст */
+}
+
+
+#product_price {
+    font-weight: bold;
+}
+
+
+#order_price {
+    font-weight: bold;
+    font-size: 18px;
+}
+.order-info{
+    display:flex;
+    flex-direction: row;
+    gap:10px;
+    justify-content: space-around;
+}
+
+
